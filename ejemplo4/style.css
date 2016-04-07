@@ -1,0 +1,27 @@
+autocomplete-widget { display:block; }
+
+* { box-sizing:border-box; font-size:20px; }
+
+.search-icon, .search-input {
+  display:table-cell;
+}
+.autocomplete-container {
+  border:5px solid black;
+}
+.search-area {
+  display:table;
+  width:100%;
+  padding:10px;
+  background:white;
+  border-bottom:2px dashed #888;
+}
+.search-area input {
+  width:100%;
+  border:0;
+}
+.search-area input:focus {
+  outline:0;
+}
+.results-area {
+  padding:10px;
+}

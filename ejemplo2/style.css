@@ -1,0 +1,22 @@
+                   
+/* Put your css in here */
+
+table {
+  margin: .5em 0 1em;
+}
+
+table th {
+  text-align: left;
+  border: 1px solid #d1d1d1;
+  padding: .4em .8em;
+  font-weight: bold;
+}
+
+table td {
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  padding: 10px;
+}
+
+
+                

@@ -1,0 +1,76 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc2/angular-material.css">
+    <link rel="stylesheet" href="https://material.angularjs.org/1.1.0-rc2/docs.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+</head>
+<body  ng-app="demoApp"> -->
+  <md-dialog aria-label="Empresa" class="fullscreen-dialog">
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button ng-click="closeDialog()" class="md-icon-button">
+            <md-icon class="fa fa-times fa-2x"></md-icon>
+          </md-button>
+          <h2 flex="flex">Guardar registro de una nueva Empresa</h2>
+        </div>
+      </md-toolbar>
+      <md-dialog-content>
+		       <div  flex layout="row" layout-align="center center">
+		          <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+		            <md-content class="md-padding">
+		               <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+		                  <form name="contactForm" data-ng-submit="sendMail()">
+		                       <md-input-container>
+		                            <label>Nombre:</label>
+		                            <input ng-model="contactName" required>
+		                       </md-input-container>
+		                       <md-input-container>
+		                            <label>Rubro:</label>
+		                            <input  ng-model="entry" required>
+		                       </md-input-container>
+		                       <md-input-container>
+		                            <label>Codigo:</label>
+		                            <input  ng-model="code" required>
+		                       </md-input-container>
+		                      <md-input-container>
+		                            <label>Sucursal:</label>
+		                            <input  ng-model="subsidiary" >
+		                       </md-input-container>
+		                       <md-input-container flex>
+		                            <label>Direccion:</label>
+		                            <input  ng-model="address" >
+		                       </md-input-container>
+		                      <md-button type="submit" class="md-primary"  aria-label="Save Project">Guardar</md-button>
+		                 </form>
+		             </div>
+		           </md-content>
+		        </div>
+		       </div>
+   </md-dialog-content>
+    </md-dialog>
+<!-- <div layout="row" layout-wrap>
+  <div flex="33" style="background-color: #ECF1F5;">[flex=33]</div>
+  <div flex="66" style="background-color: #CA2626;">[flex=66]</div>
+  <div flex="66" style="background-color: #9A3F3F;">[flex=66]</div>
+  <div flex="33" style="background-color: #3F429A;">[flex=33]</div>
+  <div flex="33" style="background-color: #3F9A66;">[flex=33]</div>
+  <div flex="33" style="background-color: #FAFA93;">[flex=33]</div>
+  <div flex="33" style="background-color: #FAA893;">[flex=33]</div>
+</div> -->
+			   
+ <!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+ <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script> 
+ <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc2/angular-material.js"></script>
+ <script src="app2.js"></script>
+
+</body>
+
+</html> -->

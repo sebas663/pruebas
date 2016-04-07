@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css">
+  <script   src="https://code.jquery.com/jquery-2.2.2.min.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js" ></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/angular.bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body onload='init()'>
+  <div id='container' ng-controller='TypeaheadCtrl'>
+    <h3 class="ng-binding">Item Name: {{item.name}}</h3>
+    <h3 class="ng-binding">Item Id: ({{item.id}})</h3>
+    <input id='itemInput' type="text" ng-model="item" placeholder="Item Name" typeahead="item as item.name for item in items | filter:$viewValue" class="form-control">
+  </div>
+</body>
+
+</html>

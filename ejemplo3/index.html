@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css">
+  <script   src="https://code.jquery.com/jquery-2.2.2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.js" ></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.5/ui-bootstrap-tpls.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/angular.bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body onload='init()'>
+  <div id='container' ng-controller='AddBuyController as ctrl'>
+    <h3 class="ng-binding">Item Name: {{ctrl.company.name}}</h3>
+    <h3 class="ng-binding">Item Id: ({{ctrl.company.id}})</h3>
+    <input id='itemInput' type="text" ng-model="ctrl.company" placeholder="Item Name" typeahead="company as company.name for company in lstCompanies | filter:$viewValue" class="form-control">
+  </div>
+</body>
+
+</html>

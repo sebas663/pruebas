@@ -1,0 +1,7 @@
+md-dialog.fullscreen-dialog {
+    max-width: 40%;
+    max-height: 70%;
+    width: 40%;
+    height: 70%;
+    border-radius: 50;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="MyApplication">
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.angularjs.org/1.5.0-beta.2/angular.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="ApplicationController as app">
+    
+  	<autocomplete-widget>
+  		<input type="text" ng-model="app.searchCriteria" placeholder="Search..." />
+  		
+  		<results>
+  			<div ng-repeat="item in app.getResults(app.searchCriteria) as results">
+  				{{ item }}
+  			</div>
+  			<div ng-if="results.length==0">
+  			  No results found
+  			</div>
+  		</results>
+  		
+  	</autocomplete-widget>
+  	
+  </body>
+
+</html>
