@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="bootstrap.css" />
+  <script src="https://code.angularjs.org/1.5.3/angular.js"></script>
+  <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <script src="bootstrap.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script-2.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="table_controller">
+  <h2>Dynamic table columns with AngularJS!</h2>
+  
+  <div class="form-group">
+    <div class="col-sm-12">
+      <p>Columns</p>
+      <div ng-repeat="c in all_columns">
+        <label>
+          <input type="checkbox" ng-model="c.checked"> {{ c.title }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th ng-repeat="c in ordered_columns">{{ c.title }}
+        </th>
+      </tr>
+      <tbody>
+        <tr ng-repeat="d in data">
+          <td ng-repeat="c in ordered_columns">{{ d[c.title] }}</td>
+        </tr>
+      </tbody>
+  </table>
+</body>
+
+</html>
