@@ -1,3 +1,6 @@
+var app = angular.module("app", []);
+
+app.controller('InitApp', InitApp);
 var generateData = function(){
   var arr = [];
   var letterWords = ["alpha","bravo","charlie","daniel","earl","fish","grace","henry","ian","jack","karen","mike","delta","alex","larry","bob","zelda"]
@@ -10,7 +13,7 @@ var generateData = function(){
 
 var sortingOrder = 'name'; //default sort
 
-function initApp($scope, $filter) {
+function InitApp($scope, $filter) {
  
   // init
   $scope.sortingOrder = sortingOrder;
@@ -117,6 +120,6 @@ function initApp($scope, $filter) {
 
 };
 
-initApp.$inject = ['$scope', '$filter'];
+InitApp.$inject = ['$scope', '$filter'];
 
 //$(document).ready(function() {});

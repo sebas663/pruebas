@@ -24,3 +24,9 @@
 .third-controller small {
   color: #9c9;
 }
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
+}

@@ -2,12 +2,24 @@
 
 var myApp = angular.module('myApp', ['angularUtils.directives.dirPagination']);
 
-function MyController($scope) {
+myApp.controller('DynamicTableController', DynamicTableController);
+myApp.controller('OtherController', OtherController);
+
+function DynamicTableController($scope,$filter) {
 
   $scope.currentPage = 1;
   $scope.pageSize = 10;
-  $scope.meals = [];
   $scope.ordered_columns = [];
+  
+  var orderBy = $filter('orderBy');
+
+  $scope.order = function(predicate) {
+      $scope.predicate = predicate;
+      $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+      $scope.data = orderBy($scope.data, predicate, $scope.reverse);
+    };
+  $scope.order('name', true);
+
   $scope.all_columns = [{
 		"title": "name",
 		"type": "string"
@@ -26,45 +38,44 @@ function MyController($scope) {
 		"type": "string"
 	  }];
 	  
-	  // i.e. the rows
-	  $scope.data = [
+  $scope.data = [
 	  {
-		"name": "aleck",
-		"age": 33,
-		"city": "Portland 1",
-		"state": "OR",
-		"job": "developer"
+		"name": "aaaaaa",
+		"age": 1,
+		"city": "bbbbbbbb",
+		"state": "cccccccc",
+		"job": "dddddddd"
 	  }, {
-		"name": "john",
-		"age": 40,
-		"city": "Portland 2",
-		"state": "OR1",
-		"job": "designer"
+		"name": "bbbbbbb",
+		"age": 3,
+		"city": "ccccccc",
+		"state": "dddddddd",
+		"job": "eeeeeee"
 	  }, {
-		"name": "erik",
-		"age": 34,
-		"city": "Portland 3",
-		"state": "OR2",
-		"job": "sales"
+		"name": "ccccccc",
+		"age": 3,
+		"city": "ddddddd",
+		"state": "eeeeeee",
+		"job": "ffffffff"
 	  },
 	  {
-		"name": "aleck",
-		"age": 33,
-		"city": "Portland 1",
-		"state": "OR",
-		"job": "developer"
+		"name": "dddddddd",
+		"age": 5,
+		"city": "eeeeeeeee",
+		"state": "ffffffff",
+		"job": "ggggggg"
 	  }, {
-		"name": "john",
-		"age": 40,
-		"city": "Portland 2",
-		"state": "OR1",
-		"job": "designer"
+		"name": "eeeeeeee",
+		"age": 4,
+		"city": "ffffffff",
+		"state": "ggggggg",
+		"job": "hhhhhhhh"
 	  }, {
-		"name": "erik",
-		"age": 34,
-		"city": "Portland 3",
-		"state": "OR2",
-		"job": "sales"
+		"name": "fffffffff",
+		"age": 6,
+		"city": "ggggggggg",
+		"state": "hhhhhhhh",
+		"job": "iiiiiiii"
 	  }
 	  ];
 
@@ -79,42 +90,11 @@ function MyController($scope) {
 			$scope.ordered_columns.push(column);
 		}
 	  };
-  var dishes = [
-    'noodles',
-    'sausage',
-    'beans on toast',
-    'cheeseburger',
-    'battered mars bar',
-    'crisp butty',
-    'yorkshire pudding',
-    'wiener schnitzel',
-    'sauerkraut mit ei',
-    'salad',
-    'onion soup',
-    'bak choi',
-    'avacado maki'
-  ];
-  var sides = [
-    'with chips',
-    'a la king',
-    'drizzled with cheese sauce',
-    'with a side salad',
-    'on toast',
-    'with ketchup',
-    'on a bed of cabbage',
-    'wrapped in streaky bacon',
-    'on a stick with cheese',
-    'in pitta bread'
-  ];
-  for (var i = 1; i <= 100; i++) {
-    var dish = dishes[Math.floor(Math.random() * dishes.length)];
-    var side = sides[Math.floor(Math.random() * sides.length)];
-    $scope.meals.push('meal ' + i + ': ' + dish + ' ' + side);
-  }
   
-  $scope.pageChangeHandler = function(num) {
-      console.log('meals page changed to ' + num);
-  };
+  
+	  $scope.pageChangeHandler = function(num) {
+		  console.log('meals page changed to ' + num);
+	  };
 }
 
 function OtherController($scope) {
@@ -123,5 +103,3 @@ function OtherController($scope) {
   };
 }
 
-myApp.controller('MyController', MyController);
-myApp.controller('OtherController', OtherController);

@@ -12,63 +12,57 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8">
-        <div ng-controller="MyController" class="my-controller">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+	  
+				<div ng-controller="DynamicTableController" class="my-controller">
+					 <div class="row">
+					 
+						<div class="col-xs-8">
+						  <label for="search">Filtrar:</label>
+						  <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+						</div>
+						
+						<div class="col-xs-4">
+						  <label for="search">Registros por pagina:</label>
+						  <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+						</div>
+						
+					</div>
+					<br>
+					<div class="panel panel-default">
+						<div class="panel-body">
+						<!-- <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre> -->
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th ng-repeat="c in ordered_columns" class="c.title">
+										<a ng-click="order(c.title)">{{ c.title }}<i class="fa fa-sort"></i>
+										   <span class="sortorder" ng-show="predicate === c.title" ng-class="{reverse:reverse}"></span>
+										</a>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr dir-paginate="d in data | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+									   <td ng-repeat="c in ordered_columns">{{ d[c.title] }}</td>
+									</tr>
+								</tbody>
+							</table>
+						  
+						</div>
+				    </div>
+				</div>
 
-			 <div class="row">
-			  
-				<div class="col-xs-4">
-				  <h3>Meals Page: {{ currentPage }}</h3>
+				<div ng-controller="OtherController" class="other-controller">
+					<div class="text-center">
+					    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination-template.html"></dir-pagination-controls>
+					</div>
 				</div>
-				
-				<div class="col-xs-4">
-				  <label for="search">Search:</label>
-				  <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
-				</div>
-				
-				<div class="col-xs-4">
-				  <label for="search">items per page:</label>
-				  <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
-				</div>
-				
-			</div>
-            <br>
-            <div class="panel panel-default">
-            <div class="panel-body">
-			
-			<table class="table table-striped">
-				<thead>
-				  <tr>
-					<th ng-repeat="c in ordered_columns">{{ c.title }} </th>
-				  </tr>
-				  <tbody>
-					<!-- <tr ng-repeat="d in data"> -->
-					<tr dir-paginate="d in data | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-					   <td ng-repeat="c in ordered_columns">{{ d[c.title] }}</td>
-					</tr>
-				  </tbody>
-			</table>
-			
-			
-			
-           <!--    <ul>
-                <li dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ meal }}</li>
-              </ul> -->
-			  
-            </div>
-          </div>
+             </div>
         </div>
-
-        <div ng-controller="OtherController" class="other-controller">
-          <div class="text-center">
-			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination-template.html"></dir-pagination-controls>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </body>
 
 </html>
